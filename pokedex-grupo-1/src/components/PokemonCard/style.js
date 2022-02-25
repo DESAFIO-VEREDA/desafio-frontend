@@ -1,18 +1,24 @@
 import styled from "styled-components";
+import backgroundImage from '../../assets/Poké_color_cinza.png';
 
 const Card = styled.section`
     display: flex;
     flex-direction: row;
-    width: 220px;
+    width: 250px;
     height: 160px;
     border-radius: 25px;
     background-color: ${(props) => props.background};
+    background-image: url(${backgroundImage});
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
 
     img {
-        width: 100px;
-        height: 150px;
+        width: 140px;
+        aspect-ratio: 1/1;
         margin-top: 10%;
         margin-right: 300px;
+        object-fit: cover;
     }
 
     div {
@@ -26,10 +32,10 @@ const Card = styled.section`
         }
 
         ul {
-            width: 35px;
             display: flex;
             flex-direction: column;
             li {
+                width: 70px;
                 border-radius: 10px;
                 background-color: ${(props) => props.background};
                 color: white;
@@ -38,7 +44,8 @@ const Card = styled.section`
                 filter: brightness(1.5);
 
                 p {
-                    filter: brightness(1)
+                    filter: brightness(1);
+                    text-align: center;
                 }
             }
 

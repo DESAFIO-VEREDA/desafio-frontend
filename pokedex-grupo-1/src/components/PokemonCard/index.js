@@ -41,12 +41,12 @@ function PokemonCard({ url }) {
     }, []);
 
     return (
-      <Card backgroud={dataPokemon.primaryColor}>
+      <Card background={dataPokemon.primaryColor}>
           <div>
             <h2>{dataPokemon.name}</h2>
             <ul>
                 { dataPokemon.types.map((type) => {
-                    return <li><p>{type.name}</p></li>
+                    return <li><p>{type}</p></li>
                 })}
             </ul>
           </div>

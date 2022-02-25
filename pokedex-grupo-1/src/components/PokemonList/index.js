@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Pokeball from '../../assets/pokeball-png.png';
-import { LoadMore } from "./style";
+import { LoadMore, List, Container } from "./style";
 import PokemonCard from "../PokemonCard";
 
-function TmpPokemonList() {
+function PokemonList() {
 
     const [pokemonsUrl, setPokemonsUrl ] = useState([]);
     const [qntPokemon, setQntPokemon ] = useState(0);
@@ -27,13 +27,13 @@ function TmpPokemonList() {
         getAllNames()
     }, [qntPokemon])
     return (
-        <section>
-            <ul>
+        <Container>
+            <List>
                 { pokemonsUrl.map((url) => (
                     <li key={url}><PokemonCard url={url} /></li>
                 ))
                 }
-            </ul>
+            </List>
             <LoadMore onClick={() => {
                 setQntPokemon(qntPokemon + 15);
                 console.log(pokemonsUrl)
@@ -41,8 +41,8 @@ function TmpPokemonList() {
                 Carregar mais Pokemons 
                 <img src={Pokeball} alt="pokeboll" />   
             </LoadMore>
-        </section>
+        </Container>
     );
 }
 
-export default TmpPokemonList;
+export default PokemonList;

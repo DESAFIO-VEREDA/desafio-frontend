@@ -16,6 +16,8 @@ color:#fff;
 border: 2px solid #e33131;
 border-radius: 8px;
 
+width: clamp(120px, 100%, 400px);
+
 img {
     width:40px;
     height:40px;
@@ -28,4 +30,27 @@ img {
 :active {
     filter:brightness(0.94)
 }
+`
+
+export const List = styled.ul`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100vw;
+    li {
+        list-style: none;
+    }
+`
+
+export const Container = styled.section`
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 `
