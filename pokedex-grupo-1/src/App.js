@@ -1,4 +1,6 @@
 import PokemonCard from './components/PokemonCard'
+import TmpPokemonCard from './components/TmpPokemonCard';
+import TmpPokemonList from './components/TmpPokemonList';
 import { GlobalStyle } from "./globalStyle";
 
 function App() {
@@ -10,8 +12,14 @@ function App() {
       sprites: { 
         front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'},
         }} />
+      <TmpPokemonList />
+      <TmpPokemonCard />
     </div>
   )
 }
 
 export default App;
+
+/*
+
+*/
