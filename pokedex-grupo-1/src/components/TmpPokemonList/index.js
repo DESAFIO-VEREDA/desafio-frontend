@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Pokeball from '../../assets/pokeball-png.png';
+import { LoadMore } from "./style";
 
 function TmpPokemonList() {
 
@@ -26,10 +28,13 @@ function TmpPokemonList() {
     return (
         <section>
             <h2>Test new component</h2>
-            <button onClick={() => {
+            <LoadMore onClick={() => {
                 setQntPokemon(qntPokemon + 15);
                 console.log(pokemonsUrl)
-            }}>click me</button>
+            }}>
+                Carregar mais Pokemons 
+                <img src={Pokeball} alt="pokeboll" />   
+            </LoadMore>
         </section>
     );
 }
