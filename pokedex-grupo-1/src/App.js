@@ -1,14 +1,18 @@
-import './App.css';
 import PokemonCard from './components/PokemonCard'
+import TmpPokemonList from './components/TmpPokemonList';
 import { GlobalStyle } from "./globalStyle";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle/>
-      <PokemonCard pokemon={{ name: 'charmander', sprites: { front_defaul: 'url'}}} />
+      <TmpPokemonList />
     </div>
   )
 }
 
 export default App;
+
+/*
+
+*/
