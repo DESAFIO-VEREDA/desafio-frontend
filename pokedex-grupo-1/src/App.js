@@ -1,4 +1,5 @@
 import PokemonCard from './components/PokemonCard'
+import TmpPokemonCard from './components/TmpPokemonCard';
 import TmpPokemonList from './components/TmpPokemonList';
 import { GlobalStyle } from "./globalStyle";
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <GlobalStyle/>
       <TmpPokemonList />
+      <TmpPokemonCard />
     </div>
   )
 }
