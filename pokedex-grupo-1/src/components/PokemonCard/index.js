@@ -6,3 +6,5 @@ function PokemonCard(pokemon) {
         <img href={pokemon.sprites.front_default} />
     </section>
 }
+
+export default PokemonCard;
