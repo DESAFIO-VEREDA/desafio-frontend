@@ -6,7 +6,7 @@ const Card = styled.section`
     width: 220px;
     height: 160px;
     border-radius: 25px;
-    background-color: azure;
+    background-color: ${(props) => props.background};
 
     img {
         width: 100px;
@@ -31,7 +31,7 @@ const Card = styled.section`
             flex-direction: column;
             li {
                 border-radius: 10px;
-                background-color: red;
+                background-color: ${(props) => props.background};
                 color: white;
                 margin-bottom: 5px;
                 padding-left: 5px;

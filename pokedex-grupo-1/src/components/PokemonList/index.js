@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Pokeball from '../../assets/pokeball-png.png';
 import { LoadMore } from "./style";
+import PokemonCard from "../PokemonCard";
 
 function TmpPokemonList() {
 
@@ -27,7 +28,12 @@ function TmpPokemonList() {
     }, [qntPokemon])
     return (
         <section>
-            <h2>Test new component</h2>
+            <ul>
+                { pokemonsUrl.map((url) => (
+                    <li key={url}><PokemonCard url={url} /></li>
+                ))
+                }
+            </ul>
             <LoadMore onClick={() => {
                 setQntPokemon(qntPokemon + 15);
                 console.log(pokemonsUrl)

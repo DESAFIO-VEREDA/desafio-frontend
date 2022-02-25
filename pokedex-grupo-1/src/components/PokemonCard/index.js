@@ -1,19 +1,57 @@
 import React from 'react';
 import Card from './style';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { getColorPokemon } from '../../utils/getColorPokemon';
 
-function PokemonCard(props) {
+function PokemonCard({ url }) {
+    
+    const [dataPokemon, setDataPokemon ] = useState({
+        name:"",
+        image: "",
+        types: [],
+        primaryColor: ""
+
+    })
+
+    async function getDataPokemon(){
+        await axios.get(url)
+            .then((res) => {
+                console.log(res.data)
+                let tmpImage = res.data.sprites.front_default;
+                let tmpTypes = res.data.types.map(obj => {
+                    return obj.type.name
+                });
+                let tmpColor = getColorPokemon(tmpTypes[0]);
+                console.log(tmpTypes, tmpColor, res.data.name)
+
+                setDataPokemon({
+                    name: res.data.name,
+                    image: tmpImage,
+                    types: tmpTypes,
+                    primaryColor: tmpColor
+                })
+                
+                
+            })
+    }
+
+    useEffect(() => {
+        getDataPokemon();
+    }, []);
+
     return (
-      <Card backGroundColor="../../assets/Poké_color_cinza.png">
+      <Card backgroud={dataPokemon.primaryColor}>
           <div>
-            <h2>{props.pokemon.name}</h2>
+            <h2>{dataPokemon.name}</h2>
             <ul>
-                { props.pokemon.types.map((type) => {
+                { dataPokemon.types.map((type) => {
                     return <li><p>{type.name}</p></li>
                 })}
             </ul>
           </div>
           
-          <img src={props.pokemon.sprites.front_default} alt={ `imagem do pokemon ${props.pokemon.name}` }/>
+          <img src={dataPokemon.image} alt={ `imagem do pokemon ${dataPokemon.name}` }/>
       </Card>
     )
 
